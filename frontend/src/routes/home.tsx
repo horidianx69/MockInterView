@@ -189,7 +189,7 @@ const HomePage = () => {
               points={[
                 "Bookmark frequently asked interview questions",
                 "Revisit tough questions before real interviews",
-                "Build your own personalized interview prep list",
+                "Build your own personalized interview prep listout",
               ]}
             />
           </div>
