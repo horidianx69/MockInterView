@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { PublicLayout } from "./layouts/public-layout";
 
@@ -12,33 +12,39 @@ import HomePage from "./routes/home";
 import MainLayout from "./layouts/main-layout";
 import Generate from "./components/generate";
 import Dashboard from "./routes/dashboard";
+import CreateEditPage from "./routes/create-edit-page";
 
 function App() {
-
   return (
     <>
-    <Router>
-      <Routes>
-        {/* public routes */}
-        <Route element={<PublicLayout/>}>
-          <Route path="/" element={<HomePage />} />
-        </Route>
-        {/* auth routes */}
-        <Route element={<AuthLayout/>}>
-          <Route path="/signin/*" element={<SignInPage />} />
-          <Route path="/signup/*" element={<SignUpPage />} />
-        </Route>
-        {/* protected routes */}
-        <Route element={<ProtectedRoutes><MainLayout /></ProtectedRoutes>}>
-          <Route path="/generate" element={<Generate />} />
-          <Route index element={<Dashboard/>}></Route>
-          <Route path=":interviewId" element={<CreateEditPage />} ></Route>
-        </Route>
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          {/* public routes */}
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<HomePage />} />
+          </Route>
+          {/* auth routes */}
+          <Route element={<AuthLayout />}>
+            <Route path="/signin/*" element={<SignInPage />} />
+            <Route path="/signup/*" element={<SignUpPage />} />
+          </Route>
+          {/* protected routes */}
+          <Route
+            element={
+              <ProtectedRoutes>
+                <MainLayout />
+              </ProtectedRoutes>
+            }
+          >
+            <Route path="/generate" element={<Generate />}>
+              <Route index element={<Dashboard />}></Route>
+              <Route path=":interviewId" element={<CreateEditPage />}></Route>
+            </Route>
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }
 
 export default App;
-

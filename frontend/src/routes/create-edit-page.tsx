@@ -3,7 +3,7 @@ import React from 'react';
 const CreateEditPage = () => {
   return (
     <div>
-      
+      CreateEditPage
     </div>
   );
 }
