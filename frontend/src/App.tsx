@@ -10,7 +10,7 @@ import SignInPage from "./routes/signin";
 import SignUpPage from "./routes/signup";
 import HomePage from "./routes/home";
 import MainLayout from "./layouts/main-layout";
-import Generate from "./components/Generate";
+import Generate from "./components/generate";
 import Dashboard from "./routes/dashboard";
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
         <Route element={<ProtectedRoutes><MainLayout /></ProtectedRoutes>}>
           <Route path="/generate" element={<Generate />} />
           <Route index element={<Dashboard/>}></Route>
+          <Route path=":interviewId" element={<CreateEditPage />} ></Route>
         </Route>
       </Routes>
     </Router>
