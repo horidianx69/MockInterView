@@ -36,6 +36,7 @@ function App() {
               </ProtectedRoutes>
             }
           >
+            
             <Route path="/generate" element={<Generate />}>
               <Route index element={<Dashboard />}></Route>
               <Route path=":interviewId" element={<CreateEditPage />}></Route>
